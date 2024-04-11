@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style:  none;
+}
+
+
+body {
+    font-family: sans-serif;
+    background-color: #292727;
+    background-image: url(/ProyectoPrueba/Img/413986235_867668735361411_4465810863854860975_n.jpg);
+    background-position: center top;
+    
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex; 
+  justify-content:flex-end; 
+  align-items:center;
+}
+
+.navbar ul {
+  list-style: none; 
+  display:flex; 
+}
+
+.navbar ul li {
+  margin: 0 50px; }
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #ffffff; 
+}
+
+.carousel-container {
+    max-width: 600px; 
+    margin: 60px;; 
+  }
+  
+  .carousel-inner {
+    width: 100%; 
+  }
+  
+  .carousel-item img {
+    max-width: 100%; 
+    height: auto; 
+  }
+  .header{
+    color: #ffffff;
+  }
+.general-content{
+  color: rgb(255, 255, 255);
+}
