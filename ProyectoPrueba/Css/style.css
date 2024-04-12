@@ -49,8 +49,8 @@
   }
   
   .carousel-item img {
-    max-width: 100%; 
-    height: auto; 
+    width: 100%; 
+    object-fit: cover;
   }
   .header{
     color: #dfaa1ac4;
@@ -82,13 +82,24 @@
   color: #fff; 
 }
 .footer-nav_index h2,
-.footer-info_index h2 {
+.footer-info_index h2{
   color: #fff;
 }
 .copyright_index{
   color: #fff;
 }
 /*PRODUCTOS---------------------------------------------------------------------------------------------------------------------------------------*/
+.body_productos{
+  background-image: url("Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-color: #292727;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.nav-sidebar_productos{
+  background-color: #3c9700;
+}
+
 .footer_productos{
   background-color: #3c9700;
   text-align: center;
@@ -100,10 +111,106 @@
   
 }
 
-.footer-nav_productos {
-  flex-basis: 20%;  
+.footer-nav_productos{
+  flex-basis: 20%;
+  text-align: left;  
 }
 
-.footer-info_productos {
+.footer-info_productos{
   flex-basis: 30%; 
-}  
+  color: #fff; 
+}
+.footer-text_productos{
+  color: #fff; 
+}
+.footer-nav_productos h2,
+.footer-info_productos h2{
+  color: #fff;
+}
+.copyright_productos{
+  color: #fff;
+}
+/*ofertas---------------------------------------------------------------------------------------------------------------------------------------*/
+.body_ofertas{
+  background-image: url("Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-color: #292727;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.nav-sidebar_ofertas{
+  background-color: #3c9700;
+}
+
+.footer_ofertas{
+  background-color: #3c9700;
+  text-align: center;
+  font-family: sans-serif;
+}
+.footer-container_ofertas{
+  display: flex;
+  justify-content: space-between;  
+  
+}
+
+.footer-nav_ofertas{
+  flex-basis: 20%;
+  text-align: left;  
+}
+
+.footer-info_ofertas{
+  flex-basis: 30%; 
+  color: #fff; 
+}
+.footer-text_ofertas{
+  color: #fff; 
+}
+.footer-nav_ofertas h2,
+.footer-info_ofertas h2{
+  color: #fff;
+}
+.copyright_ofertas{
+  color: #fff;
+}
+/*carrito---------------------------------------------------------------------------------------------------------------------------------------*/
+.body_carrito{
+  background-image: url("Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-color: #292727;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+.nav-sidebar_carrito{
+  background-color: #3c9700;
+}
+
+.footer_carrito{
+  background-color: #3c9700;
+  text-align: center;
+  font-family: sans-serif;
+}
+.footer-container_carrito{
+  display: flex;
+  justify-content: space-between;  
+  
+}
+
+.footer-nav_carrito{
+  flex-basis: 20%;
+  text-align: left;  
+}
+
+.footer-info_carrito{
+  flex-basis: 30%; 
+  color: #fff; 
+}
+.footer-text_carrito{
+  color: #fff; 
+}
+.footer-nav_carrito h2,
+.footer-info_carrito h2{
+  color: #fff;
+}
+.copyright_carrito{
+  color: #fff;
+}
