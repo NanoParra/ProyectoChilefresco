@@ -11,7 +11,7 @@
 .body_index {
     font-family: sans-serif;
     background-color: #292727;
-    background-image: url(../Img/413986235_867668735361411_4465810863854860975_n.jpg);
+    background-image: url(../Img/FondoDark.jpg);
     background-position: center top;
     
 }
@@ -40,50 +40,63 @@
   color: #ffffff; 
 }
 .carousel-container {
-    max-width: 100%;
-    align-items: center;
-    color: white;
-    opacity: .5;
-  }
-  
-  .carousel-inner {
-    width: 100%; 
-  }
-  
-  .carousel-item img {
-    max-width: 100%; 
-    height: auto; 
-  }
-  .header{
-    color: #ffffff;
-  }
-.general-content{
+  width: 65%; 
+  margin: 0 auto;
+  align-items: center;
+  color: white;
+  opacity: 0.7;
+}
+
+.carousel-inner {
+  width: 100%; 
+}
+
+.carousel-item img {
+  max-width: 100%; 
+  height: auto;
+}
+
+.header {
+  color: #ffffff;
+}
+
+.general-content {
   color: rgb(255, 255, 255);
 }
-.producto-1 img{
-max-width:40%;
-}
-.producto-1{
-  display: flex;
-  align-items:flex-end;
-  }
 
-.producto-2 img{
-  max-width:40%;
-  }
-.producto-2{
+.producto-1 img {
+  max-width: 100%; 
+}
+
+.producto-1 {
+  display: flex;
+  align-items: flex-end;
+}
+
+.producto-2 img {
+  max-width: 100%; 
+}
+
+.producto-2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  }
-.producto-3 img{
-  max-width:40%;
 }
-.producto-3{
-    display: flex;
-    justify-content:end;
-    align-items:end;
-}     
+
+.producto-3 img {
+  max-width: 100%; 
+}
+
+.producto-3 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.pNosotros{
+  font-size: 1.2em;
+  line-height: 2
+}
 .footer_index{
   background-color: #4e4b47;
   text-align: center;
@@ -120,7 +133,7 @@ max-width:40%;
 .body_productos{
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url("../Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-image: url("../Img/FondoDark.jpg");
   background-position: center top;
 }
 
@@ -210,7 +223,7 @@ max-width:40%;
 .body_ofertas{
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url("../Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-image: url("../Img/FondoDark.jpg");
   background-position: center top;
 }
 .navbar_ofertas{
@@ -268,7 +281,7 @@ max-width:40%;
 .body_carro_compra {
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url(../Img/413986235_867668735361411_4465810863854860975_n.jpg);
+  background-image: url(../Img/FondoDark.jpg);
   background-position: center top;
   
 }
