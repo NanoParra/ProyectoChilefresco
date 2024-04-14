@@ -11,7 +11,7 @@
 .body_index {
     font-family: sans-serif;
     background-color: #292727;
-    background-image: url(/ProyectoPrueba/Img/413986235_867668735361411_4465810863854860975_n.jpg);
+    background-image: url(../Img/413986235_867668735361411_4465810863854860975_n.jpg);
     background-position: center top;
     
 }
@@ -120,7 +120,7 @@ max-width:40%;
 .body_productos{
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url("/ProyectoPrueba/Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-image: url("../Img/413986235_867668735361411_4465810863854860975_n.jpg");
   background-position: center top;
 }
 
@@ -210,7 +210,7 @@ max-width:40%;
 .body_ofertas{
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url("/ProyectoPrueba/Img/413986235_867668735361411_4465810863854860975_n.jpg");
+  background-image: url("../Img/413986235_867668735361411_4465810863854860975_n.jpg");
   background-position: center top;
 }
 .navbar_ofertas{
@@ -268,7 +268,7 @@ max-width:40%;
 .body_carro_compra {
   font-family: sans-serif;
   background-color: #292727;
-  background-image: url(/ProyectoPrueba/Img/413986235_867668735361411_4465810863854860975_n.jpg);
+  background-image: url(../Img/413986235_867668735361411_4465810863854860975_n.jpg);
   background-position: center top;
   
 }
