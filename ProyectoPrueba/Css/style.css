@@ -73,34 +73,16 @@
   color: rgb(255, 255, 255);
 }
 
-.producto-1 img {
-  max-width: 100%; 
+.titulo-pro{
+  color: rgb(255, 255, 255);
 }
-
-.producto-1 {
+.section img{
+  max-width: 400px;
+}
+.section {
   display: flex;
-  align-items: flex-end;
-}
-
-.producto-2 img {
-  max-width: 100%; 
-}
-
-.producto-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.producto-3 img {
-  max-width: 100%; 
-}
-
-.producto-3 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
+  max-width: 10%;
+} 
 
 .pNosotros{
   font-size: 1.2em;
