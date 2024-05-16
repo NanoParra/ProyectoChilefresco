@@ -61,3 +61,27 @@ function validarCampos() {
     limpiar_campos();
 
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    var loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (username === 'admin' && password === '123') {
+            // Update the button text to "Account"
+            console.log("Inicio de sesión con éxito " + username);
+            var loginButton = document.getElementById('loginButton');
+            loginButton.innerText = 'Account';
+            loginButton.removeAttribute('data-bs-toggle'); // Remove the data-bs-toggle attribute
+            loginButton.removeAttribute('data-bs-target'); // Remove the data-bs-target attribute
+
+            // Redirect the user to the "CUENTA" HTML page
+            window.location.href = '../Html/CUENTA.html';
+        } else {
+            // If login fails, you can display an error message or perform any other action
+            window.alert('Contraseña inválida.');
+        }
+    });
+});
