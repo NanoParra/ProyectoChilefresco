@@ -9,9 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--Link Js bostrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Productos</title>
+    <title>verdulería</title>
+    <script src="../Js/Funciones.js"></script>
 </head>
-
 <header>
     <div class="left-section">
         <div class="logo">
@@ -46,57 +46,62 @@
     </div>
     
 </header>
-<body class="body"> 
 
-    <div class="hyperlink_bebecomestible">
-        <div class="img-bebecomestible">
-            <a href="BEBECOMESTIBLES.html">
-                <img src="../Img/chatarra.png" alt="" width="300px">
-            </a>
-        </div>
-        <div class="productos_desc">
-            <center><h1>Bebestibles y snacks</h1></center>
-        </div>
-    </div>
-    
-    <div class="bakery">
-        <div class="productos_pastel">
-            <div class="img-pastel">
-                <a href="PANADERIA.html">
-                    <img src="../Img/pan_pasteles.png" class="rounded float-end" alt="" width="500px">
-                </a>
-            </div>
-            <div class="productos_desc">
-                <center><h1>Pasteleria y Panaderia</h1></center>
-            </div>
-            
-        </div>
-    </div>
-    
-    <div class="verduleria">
-        <div class="productos_dorito">
-            <div class="img-dorito">
-                <a href="VERDULERIA.html">
-                    <img src="../Img/verduleria.png" alt="" width="600px">
-                </a>
-            </div>
-            <div class="productos_desc">
-                <center><h1>Verduleria</h1></center>
-            </div>
-        
-        </div>
-    </div>
 
+<body class="body">
+    <section class="section">
+        <div class="product">
+            <img src="../Img/tomate.png" alt="Tomate">
+            <h3>Tomate</h3>
+            <p>$10</p>
+            <div class="quantity">
+                <button class="btn btn-primary quantity-btn">-</button>
+                <input type="text" value="1" class="quantity-input form-control">
+                <button class="btn btn-primary quantity-btn">+</button>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+        </div>
+    
+        <div class="product">
+            <img src="../Img/product_b.png" alt="Product B">
+            <h3>Product B</h3>
+            <p>$15</p>
+            <div class="quantity">
+                <button class="btn btn-primary quantity-btn">-</button>
+                <input type="text" value="1" class="quantity-input form-control">
+                <button class="btn btn-primary quantity-btn">+</button>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+        </div>
+    
+        <div class="product">
+            <img src="../Img/product_c.png" alt="Product C">
+            <h3>Product C</h3>
+            <p>$20</p>
+            <div class="quantity">
+                <button class="btn btn-primary quantity-btn">-</button>
+                <input type="text" value="1" class="quantity-input form-control">
+                <button class="btn btn-primary quantity-btn">+</button>
+            </div>
+            <button class="btn btn-primary add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+        </div>
+    </section>
+    
+
+    
     <section class="footer">
         <div class="footer-container">
             <h2>Servicio al cliente</h2>
             <ul>
-                <li><a class="a_productos"  href="" target="_self">Terminos y condiciones</a></li>
-                <li><a class="a_productos"  href="" target="_self">Cómo comprar</a></li>
+                <li><a class="a_ofertas"  href="" target="_self">Terminos y condiciones</a></li>
+                <li><a class="a_ofertas"  href="" target="_self">Cómo comprar</a></li>
             </ul>
+
             <div class="footer-info">
                 <h2>Visítanos</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11981.480070507077!2d-72.9448434!3d-41.3443105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826c4c84e7345%3A0x10f9dd91c640d38f!2sChile%20Fresco!5e0!3m2!1sen!2scl!4v1712860724239!5m2!1sen!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11981.480070507077!2d-72.9448434!3d-41.3443105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826c4c84e7345%3A0x10f9dd91c640d38f!2sChile%20Fresco!5e0!3m2!1sen!2scl!4v1712860724239!5m2!1sen!2scl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
                 <p>(<a href="https://maps.app.goo.gl/eVxz6as2zY2u6RtF9">Ver en Google Maps</a>)</p>
                 <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z" clip-rule="evenodd"/>
