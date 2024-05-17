@@ -52,13 +52,11 @@ function validarCampos() {
         document.getElementById('city').value = '';
         alert('Por favor, ingresa tu ciudad.');
         return;
-    }
-    if (mensaje !==""){
-        alert (mensaje);
-        return;
+  
     }
     window.alert("Datos de formulario ingresados correctamente "+nombre)
     limpiar_campos();
+
 
 }
 
