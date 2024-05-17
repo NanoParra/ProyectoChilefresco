@@ -1,130 +1,166 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/style.css">
-    <link rel="icon" href="../Img/Logo chico.png" type="image/x-icon"/>
-    <!--Link Css bostrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--Link Js bostrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title>Chile Fresco</title>
-</head>
-<body class="body_index">
-        <nav class="logo">
-            <center><a href="#"><img src="../Img/Logo.png" alt=""width height="100px"></a></center>
-        </nav>
-
-        <nav class="navbar_index">
-            <ul>
-                <li><a class="a_productos"  href="../Html/index.html" target="_self">Inicio</a></li>
-                <li><a class="a_productos"  href="../Html/PRODUCTOS.html" target="_self">Productos</a></li>
-                <li><a class="a_productos"  href="../Html/OFERTAS.html" target="_self">Ofertas</a></li>
-                <li><a class="a_productos"  href="../Html/CARRO_COMPRA.html" target="_self">Carrito</a></li>
-            </ul>
-        </nav>
-        <div class="carousel-container">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../Img/imagen1.jpg" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../Img/imagen2.png" class="d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="../Img/imagen3.png" class="d-block w-100" alt="...">
-              </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Descripción de tu página aquí">
+        <meta name="keywords" content="palabras clave, separadas, por, comas">
+        <link rel="icon" href="../Img/Logo chico.png" type="image/x-icon"/>
+        <!-- Link CSS Bootstrap -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- Link JS Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <title>ChileFresco</title>
+        <link rel="stylesheet" href="../Css/style.css">
+        <script src="../Js/Funciones.js"></script>
+    </head>
+<body class="body">
+    <header>
+        <div class="left-section">
+            <div class="logo">
+                <a href="#"><img src="../Img/Logo.png" alt="Chile Fresco Logo" width="" height="50px"></a>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
+            <nav class="navbar">
+                <ul>
+                    <li><a class="a_productos" href="../Html/index.html">Inicio</a></li>
+                    <li><a class="a_productos" href="../Html/PRODUCTOS.html">Productos</a></li>
+                    <li><a class="a_productos" href="../Html/CONTACTANOS.html">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="right-section">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+                Login
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+            <a href="../Html/CARRO_COMPRA.html">
+                <button class="btn btn-primary cart-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                        <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z"/>
+                    </svg>
+                    Carrito
+                </button>
+            </a>
         </div>
-        <br><br>
-    
-
-        <header class="header">
-        <div class="header-content container">
-            <center><h1>
-                Sobre Nosotros
-            </h1></center>
-            <p class="pNosotros">
-              ¡Bienvenidos a Chile Fresco! 🎉 
-              En nuestro local de minimarket, te ofrecemos una experiencia de compras única, con una variedad de productos que satisfacen todas tus necesidades. Desde nuestra panadería con panes recién horneados, pasando por los confites que te recuerdan a tu niñez, hasta nuestra verdureria que cuenta con los productos más frescos de la temporada.              
-              Además, no te puedes perder nuestra pastelería, donde encontrarás todos tus dulces favoritos, perfectos para consentirte o para compartir en una ocasión especial.              
-              Lo más importante para nosotros es tu satisfacción. Por eso, contamos con un equipo de trabajo dedicado y amable que se esfuerza en brindarte el mejor servicio. Queremos que te sientas como en casa cada vez que nos visites.              
-              Ven y descubre la diferencia de comprar en Chile Fresco. Te esperamos con los brazos abiertos y con la calidad que mereces. ¡No olvides seguirnos en nuestras redes sociales para estar al día con nuestras promociones y novedades! 🌟
-            </p>
-        </div>
-        </header>
-
-
-        <section class="general container">
-          <div class="titulo-pro">
-            <center><h2>Productos</h2></center>
-          </div>
-        <div class="section">
-            <div class="producto-1">
-                <a class="a_productos"  href="../Html/PRODUCTOS.html" target="_blank"><img src="../Img/confites.jpg" alt=""></a>
-            </div>
-            <div class="producto-2">
-                <a class="a_productos"  href="../Html/PRODUCTOS.html" target="_blank"><img src="../Img/dulceria2.jpg" alt=""></a>
-            </div>
-            <div class="producto-3">
-                <a class="a_productos"  href="../Html/PRODUCTOS.html" target="_blank"><img src="../Img/fruteria.jpg" alt=""></a>
-            </div>
-        </div>
-        <a href="#" class="btn-1">Informacion</a>
-        </section>
-        
     </header>
     
-</nav>
-<br>
-<br>
-<br>
-<br>
+    <!-- Modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Ingrese sus datos de usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Login form -->
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Correo</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" id="loginButton" class="btn btn-primary">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<section class="footer_index">
-    <div class="footer-container_index">
-        <nav class="footer-nav_index">
+    <div class="principal">
+        <center><h1>Sobre Nosotros</h1></center>
+        <p class="pNosotros">
+            ¡Bienvenidos a Chile Fresco! 🎉 
+            En nuestro local de minimarket, te ofrecemos una experiencia de compras única, con una variedad de productos que satisfacen todas tus necesidades. Desde nuestra panadería con panes recién horneados, pasando por los confites que te recuerdan a tu niñez, hasta nuestra verdulería que cuenta con los productos más frescos de la temporada.              
+            Además, no te puedes perder nuestra pastelería, donde encontrarás todos tus dulces favoritos, perfectos para consentirte o para compartir en una ocasión especial.              
+            Lo más importante para nosotros es tu satisfacción. Por eso, contamos con un equipo de trabajo dedicado y amable que se esfuerza en brindarte el mejor servicio. Queremos que te sientas como en casa cada vez que nos visites.              
+            Ven y descubre la diferencia de comprar en Chile Fresco. Te esperamos con los brazos abiertos y con la calidad que mereces. ¡No olvides seguirnos en nuestras redes sociales para estar al día con nuestras promociones y novedades! 🌟
+        </p>
+    </div>
+    
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="product">
+              <img src="../Img/bebida.png" alt="Producto 1" height="80px">
+              <h3>Bebida Coca-Cola</h3>
+              <p>Ofertas</p>
+              <button class="btn btn-primary" onclick="agregarAlCarrito(1)">Comprar</button>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="product">
+              <img src="../Img/doritos.png" alt="Producto 2">
+              <h3>Doritos</h3>
+              <p>Ofertas</p>
+              <button class="btn btn-primary" onclick="agregarAlCarrito(2)">Comprar</button>
+            </div>
+          </div>
+          <!-- Agregar más elementos de carrusel con productos -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+
+    <section class="general container">
+        <div class="titulo-pro">
+            <center><h2>Productos</h2></center>
+        </div>
+        <div class="section cards">
+            <div class="card">
+                <a class="a_productos" href="../Html/BEBECOMESTIBLES.html">
+                    <img src="../Img/confites.jpg" alt="Confites">
+                    <p>Tenemos gran variedad de confites para que degustes</p>
+                </a>
+            </div>
+            <div class="card">
+                <a class="a_productos" href="../Html/PANADERIA.html">
+                    <img src="../Img/dulceria2.jpg" alt="Dulcería">
+                    <p>Para tus antojos dulces contamos con variedades de pasteles caseros</p>
+                </a>
+            </div>
+            <div class="card">
+                <a class="a_productos" href="../Html/VERDULERIA.html">
+                    <img src="../Img/fruteria.jpg" alt="Frutería">
+                    <p>Frutas y verduras frescas para que prepares las mejores recetas</p>
+                </a>
+            </div>
+        </div>
+        <center><a href="#" class="btn-1">Información</a></center>
+    </section>
+
+    <section class="footer">
+        <div class="footer-container">
             <h2>Servicio al cliente</h2>
             <ul>
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Cómo comprar</a></li>
-        </ul>
-      </nav>
-      <div class="footer-info_index">
-        <h2>Visítanos</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11981.480070507077!2d-72.9448434!3d-41.3443105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826c4c84e7345%3A0x10f9dd91c640d38f!2sChile%20Fresco!5e0!3m2!1sen!2scl!4v1712860724239!5m2!1sen!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <p>(<a href="https://maps.app.goo.gl/eVxz6as2zY2u6RtF9">Ver en Google Maps</a>)</p>
-        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M11.906 1.994a8.002 8.002 0 0 1 8.09 8.421 7.996 7.996 0 0 1-1.297 3.957.996.996 0 0 1-.133.204l-.108.129c-.178.243-.37.477-.573.699l-5.112 6.224a1 1 0 0 1-1.545 0L5.982 15.26l-.002-.002a18.146 18.146 0 0 1-.309-.38l-.133-.163a.999.999 0 0 1-.13-.202 7.995 7.995 0 0 1 6.498-12.518ZM15 9.997a3 3 0 1 1-5.999 0 3 3 0 0 1 5.999 0Z" clip-rule="evenodd"/>
-          </svg>
-          
-        <p class="foter-text_index">Volcan Hornopiren G9, Puerto Varas, Chile</p>
-        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z"/>
-          </svg>
-          
-        <p class="foter-text_index">Pedidos al +56945886714</p>
-        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
-          </svg>
-          
-        <p class="foter-text_index">Horario de atención de 9:00 am a 23:00 hrs</p>
-
-      </div>
-    </div>
-    <p class="copyright_index">Todos los derechos reservados</p>
-  </section>
-
+                <li><a href="#">Términos y condiciones</a></li>
+                <li><a href="#">Cómo comprar</a></li>
+            </ul>
+                <p>Volcán Hornopirén G9, Puerto Varas, Chile</p>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z"/>
+                </svg>
+                <p>Pedidos al +56945886714</p>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M22.4 4.4l-1.6 1.6c-.4.4-1.2.4-1.6 0L16 3.2c-.4-.4-1.2-.4-1.6 0l-1.6 1.6 4.4 4.4 3.2-3.2c.4-.4.4-1.2 0-1.6zm-3.6 5.6L6.6 22.8c-.4.4-1 .4-1.4 0L.8 18.4c-.4-.4-.4-1 0-1.4L15.4 2.6c.4-.4 1-.4 1.4 0L18.8 4c.4.4.4 1 0 1.4L14.4 10l1.4 1.4z"/>
+                </svg>
+                <p>Email: contacto@chilefresco.cl</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
