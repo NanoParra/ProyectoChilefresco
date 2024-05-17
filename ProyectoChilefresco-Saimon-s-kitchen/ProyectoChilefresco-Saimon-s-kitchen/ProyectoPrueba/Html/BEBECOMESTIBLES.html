@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descripción de tu página aquí">
+    <meta name="keywords" content="palabras clave, separadas, por, comas">
+    <link rel="icon" href="../Img/Logo chico.png" type="image/x-icon"/>
+    <!-- Link CSS Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Link JS Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Bebeycomestibles</title>
+    <link rel="stylesheet" href="../Css/style.css">
+    <script src="../Js/Funciones.js"></script>
+</head>
+
+<body class="body">
+    <header>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <a href="#"><img src="../Img/Logo.png" alt="Logo" width="100" height="100"></a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a class="a_productos" href="../Html/index.html">Inicio</a></li>
+                    <li><a class="a_productos" href="../Html/PRODUCTOS.html">Productos</a></li>
+                    <li><a class="a_productos" href="../Html/CONTACTANOS.html">Contáctanos</a></li>
+                </ul>
+            </nav>
+            <div class="right-section">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                    Login
+                </button>
+                <a href="../Html/CARRO_COMPRA.html">
+                    <button class="btn btn-primary cart-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                            <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z"/>
+                        </svg>
+                        Carrito
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Ingrese sus datos de usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Login form -->
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Correo</label>
+                            <input type="text" class="form-control" id="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" id="loginButton" class="btn btn-primary">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section container my-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="product card h-100">
+                    <img src="../Img/bebida.png" class="card-img-top" alt="Tomate">
+                    <div class="card-body">
+                        <h5 class="card-title">Coca-Cola</h5>
+                        <p class="card-text">$900</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <button class="btn btn-primary me-2 quantity-btn">-</button>
+                            <input type="text" value="1" class="form-control w-25 quantity-input text-center">
+                            <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary w-100 add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-4">
+                <div class="product card h-100">
+                    <img src="../Img/doritos.png" class="card-img-top" alt="Product B"height="100px">
+                    <div class="card-body">
+                        <h5 class="card-title">Dorito</h5>
+                        <p class="card-text">$500</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <button class="btn btn-primary me-2 quantity-btn">-</button>
+                            <input type="text" value="1" class="form-control w-25 quantity-input text-center">
+                            <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary w-100 add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-4">
+                <div class="product card h-100">
+                    <img src="../Img/oblea.png" class="card-img-top" alt="Product C">
+                    <div class="card-body">
+                        <h5 class="card-title">Oblea Cocholate</h5>
+                        <p class="card-text">$700</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <button class="btn btn-primary me-2 quantity-btn">-</button>
+                            <input type="text" value="1" class="form-control w-25 quantity-input text-center">
+                            <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                        </div>
+                        <button class="btn btn-primary w-100 add-to-cart-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Añadir al carro</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Servicio al Cliente</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-white" href="#">Términos y Condiciones</a></li>
+                        <li><a class="text-white" href="#">Cómo Comprar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Visítanos</h5>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11981.480070507077!2d-72.9448434!3d-41.3443105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826c4c84e7345%3A0x10f9dd91c640d38f!2sChile%20Fresco!5e0!3m2!1sen!2scl!4v1712860724239!5m2!1sen!2scl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p>(<a class="text-white" href="https://maps.app.goo.gl/eVxz6as2zY2u6RtF9">Ver en Google Maps</a>)</p>
+                    <p>Volcán Hornopirén G9, Puerto Varas, Chile</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p>Pedidos al +56945886714</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
