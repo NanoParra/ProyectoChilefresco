@@ -62,38 +62,67 @@ function validarCampos() {
 
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    var loginForm = document.getElementById('loginForm');
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent form submission
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+/* filtro productos */
+filterSelection("all");
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("filterDiv");
+  if (c == "all") c = "";
+  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
 
-        if (username === 'admin' && password === '123') {
-            // Update the button text to "Account"
-            console.log("Inicio de sesión con éxito " + username);
-            var loginButton = document.getElementById('loginButton');
-            loginButton.innerText = 'Account';
-            loginButton.removeAttribute('data-bs-toggle'); // Remove the data-bs-toggle attribute
-            loginButton.removeAttribute('data-bs-target'); // Remove the data-bs-target attribute
-
-            // Redirect the user to the "CUENTA" HTML page
-            window.location.href = '../Html/CUENTA.html';
-        } else {
-            // If login fails, you can display an error message or perform any other action
-            window.alert('Contraseña inválida.');
-        }
-    });
-});
-    let map;
-
-    async function initMap() {
-      const { Map } = await google.maps.importLibrary("maps");
-    
-      map = new Map(document.getElementById("map"), {
-        center: { lat:-41.344223830903864, lng:-72.94481119420918},
-        zoom: 8,
-      });
+// Mostrar elementos seleccionados
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
     }
-    
-    initMap();
+  }
+}
+
+// Esconde elementos no seleccionados
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+
+/*google maps api*/
+/*AIzaSyBM2nMYgnN2PTeUjnZhPj3nSma_HxXA7sk*/ 
+
+function initMap() {
+    var location = {lat: -41.34427977478903, lng: -72.94484012945983};
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 10,
+        center: location
+    });
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+}

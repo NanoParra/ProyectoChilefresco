@@ -47,7 +47,59 @@
             </a>
         </div>
     </header>
+       
+       <section class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre Nosotros</h2>
+                    <p class="pNosotros">
+                        En nuestro local de minimarket, te ofrecemos una experiencia de compras única, con una variedad de productos que satisfacen todas tus necesidades. Desde nuestra panadería con panes recién horneados, pasando por los confites que te recuerdan a tu niñez, hasta nuestra verdulería que cuenta con los productos más frescos de la temporada.              
+                        Además, no te puedes perder nuestra pastelería, donde encontrarás todos tus dulces favoritos, perfectos para consentirte o para compartir en una ocasión especial.              
+                        Lo más importante para nosotros es tu satisfacción. Por eso, contamos con un equipo de trabajo dedicado y amable que se esfuerza en brindarte el mejor servicio. Queremos que te sientas como en casa cada vez que nos visites.              
+                        Ven y descubre la diferencia de comprar en Chile Fresco. Te esperamos con los brazos abiertos y con la calidad que mereces.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="../Img/fondo.png" alt="Establecimiento" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
 
+        
+        <section class="contact-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                       <h2>Quiere que vendamos su producto en nuestro local?</h2>
+                       <p class="pNosotros">
+                        ¿Tiene un producto artesanal que quiere vender? ¡Nosotros nos encargamos! En nuestro local, podemos promocionarlo y hacer que llegue a más personas. Y si usted es un artesano de productos agrícolas o ganaderos, ¡no se preocupe por el transporte! ¡Nosotros vamos hasta su parcela para llevarlo directo a nuestra tienda! No dude en completar nuestro formulario. ¡Estamos aquí para ayudarle a llevar su negocio al siguiente nivel!
+                       </p>
+                        <div class="col-md-6">
+                            <img src="../Img/Vendedorxd.jpeg" alt="Establecimiento" class="img-fluid">
+                        </div>
+                        <!-- Button to trigger contact form modal -->
+                        <button id="btn-abrir-modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contáctenos aquí</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section class="location-map">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Nuestra Red de Venta de Productos Artesanales</h2>
+                        <p class="pNosotros">Únete a nuestra creciente red de distribución de productos artesanales en nuestra área.</p>
+                    </div>
+                </div>
+                <div id="map"></div>
+            </div>
+        </section>
+        
+        
     <!-- Modal Login -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -74,7 +126,6 @@
         </div>
     </div>
     
-    <button id="btn-abrir-modal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contáctenos aquí</button>
 
     <!-- Modal Formulario -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -133,26 +184,36 @@
         </div>
     </div>
 
+
     <section class="footer">
         <div class="footer-container">
             <h2>Servicio al cliente</h2>
+              <script async
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9hIllwF6Nv4LHOCCbhp0EHded6xBLGeE&callback=initMap">
+            </script>
             <ul>
-                <li><a class="a_ofertas" href="" target="_self">Términos y condiciones</a></li>
-                <li><a class="a_ofertas" href="" target="_self">Cómo comprar</a></li>
+                <li><a href="#">Términos y condiciones</a></li>
+                <li><a href="#">Cómo comprar</a></li>
             </ul>
-            <div class="footer-info">
-                <h2>Visítanos</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11981.480070507077!2d-72.9448434!3d-41.3443105!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961826c4c84e7345%3A0x10f9dd91c640d38f!2sChile%20Fresco!5e0!3m2!1sen!2scl!4v1712860724239!5m2!1sen!2scl" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <p>(<a href="https://maps.app.goo.gl/eVxz6as2zY2u6RtF9">Ver en Google Maps</a>)</p>
-                <p><i class="fas fa-map-marker-alt"></i> Dirección: Volcán Hornopirén G9, Puerto Varas, Chile</p>
-                <p><i class="fas fa-envelope"></i> Correo electrónico: fullserviceptovaras@gmail.com</p>
-                <p><i class="fas fa-phone"></i> Teléfono: +56912345678</p>
-            </div>
-            <div class="footer-social">
-                <h2>Síguenos</h2>
-                <a href="https://www.facebook.com/chilefresco/?locale=es_LA" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <p>Volcán Hornopirén G9, Puerto Varas, Chile</p>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z"/>
+                </svg>
+                <p>Pedidos al +56945886714</p>
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M22.4 4.4l-1.6 1.6c-.4.4-1.2.4-1.6 0L16 3.2c-.4-.4-1.2-.4-1.6 0l-1.6 1.6 4.4 4.4 3.2-3.2c.4-.4.4-1.2 0-1.6zm-3.6 5.6L6.6 22.8c-.4.4-1 .4-1.4 0L.8 18.4c-.4-.4-.4-1 0-1.4L15.4 2.6c.4-.4 1-.4 1.4 0L18.8 4c.4.4.4 1 0 1.4L14.4 10l1.4 1.4z"/>
+                </svg>
+                <p>Email: contacto@chilefresco.cl</p>
             </div>
         </div>
     </section>
+
+    <script>
+     initMap();   
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM2nMYgnN2PTeUjnZhPj3nSma_HxXA7skcall=initMap"></script>
+
+    
 </body>
 </html>

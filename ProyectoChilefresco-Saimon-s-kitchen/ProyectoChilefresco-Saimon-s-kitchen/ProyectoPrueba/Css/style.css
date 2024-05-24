@@ -2,7 +2,7 @@
 /* Global Variables */
 :root {
   --main-bg-color: #2C3E50;
-  --text-color: #ECF0F1;
+  --text-color: #eff1ec;
   --highlight-color: #3498DB;
   --logo-bg-color: #34495E;
   --footer-bg-color: #F39C12;
@@ -10,6 +10,7 @@
   --primary-color: #E74C3C;
   --secondary-color: #2C3E50;
   --border-color: #F39C12;
+  --button-color:#329b08;
 }
 
 /* Global Styles */
@@ -19,6 +20,29 @@ body {
   color: var(--text-color);
   margin: 0;
   padding: 0;
+}
+/*tarjeta producto*/
+.col-md-4 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  padding: 15px;
+}
+.card-img-top {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/*botones*/
+.btn-primary {
+  background-color: var(--button-color) !important; 
+  border-color: var(--secondary-color) !important; 
+  color: var(--text-color)
+}
+.btn-primary:hover {
+  background-color: var(--primary-color) !important; 
+  border-color: var(--secondary-color) !important; 
+  color: #fff !important; 
 }
 
 a {
@@ -30,7 +54,7 @@ a:hover {
   color: var(--highlight-color);
   text-decoration: underline;
 }
-
+/* barra navegación*/
 header, .navbar {
   display: flex;
   justify-content: space-between;
@@ -40,7 +64,7 @@ header, .navbar {
 }
 
 .logo img {
-  height: 50px;
+  height: 100px;
 }
 
 .navbar ul {
@@ -65,6 +89,7 @@ header, .navbar {
 .right-section .btn {
   margin-left: 10px;
 }
+/*Carrusel*/
 .carousel-container {
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
@@ -165,12 +190,13 @@ header, .navbar {
 .btn-1:hover {
   background-color: var(--secondary-color);
 }
-
+/*FOOTER*/
 .footer {
   background-color: var(--footer-bg-color);
   color: #000;
   padding: 20px 50px;
   text-align: center;
+  position: relative;
 }
 
 .footer-container {
@@ -191,6 +217,7 @@ header, .navbar {
 .footer-info svg {
   margin-right: 5px;
 }
+/*modal*/
 .modal-content{
   
   top: 0;
@@ -203,4 +230,160 @@ header, .navbar {
 .card-text{
   color: #fff;
 }
-/* verdureria */
+
+/*mapa google chile fresco---------------------------------------------------------*/
+#map{
+  height: 300px;
+  width: 50%;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .general.container {
+    padding: 15px;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header, .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    
+  }
+
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar ul li {
+    margin: 5px 0;
+  }
+
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel-inner img {
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  header, .navbar {
+    padding: 5px 10px;
+  }
+
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .navbar ul li a {
+    font-size: 1rem;
+  }
+
+
+
+  .footer {
+    padding: 10px 20px;
+  }
+
+  .carousel-inner img {
+    max-height: 100px;
+  }
+
+  .btn-1 {
+    padding: 8px 16px;
+  }
+}
+/* productos --------------------------------------------------*/
+.container_pro {
+  overflow: hidden;
+}
+
+.filterDiv {
+  display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+.filterDiv .product {
+  background-color: var(--logo-bg-color);
+  color: #ffffff;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: var(--button-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: var(--primary-color);
+  
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color:var(--border-color);
+  color: white;
+}
+
+/* Card styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  line-height: 1;
+}
+
+.quantity-input {
+  text-align: center;
+}
+
+/* seccion de contactanos*/
+.about-us, .contact-form, .location-map {
+  border-radius: 15px;
+  background-color: var(--logo-bg-color); 
+  padding: 20px;
+  margin: 20px 0; /* Adjust margin as needed */
+}
