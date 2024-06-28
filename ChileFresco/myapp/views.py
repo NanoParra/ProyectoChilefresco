@@ -7,35 +7,37 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados, Mascotas, BebesYNiños, Ferreteria
 # Create your views here
 
-def productos_view(request):
-    verduras_y_frutas = VerdurasYFrutas.objects.all()
-    refrigerados = Refrigerados.objects.all()
-    limpieza = Limpieza.objects.all()
-    carnes = Carnes.objects.all()
-    despensa = Despensa.objects.all()
-    bebidas_y_licores = BebidasYLicores.objects.all()
-    queso_y_fiambres = QuesoYFiambres.objects.all()
-    panaderia_y_pasteleria = PanaderiaYPasteleria.objects.all()
-    congelados = Congelados.objects.all()
-    mascotas = Mascotas.objects.all()
-    bebes_y_ninos = BebesYNiños.objects.all()
-    ferreteria = Ferreteria.objects.all()
-    
-    context = {
-        'verduras_y_frutas': verduras_y_frutas,
-        'refrigerados': refrigerados,
-        'limpieza': limpieza,
-        'carnes': carnes,
-        'despensa': despensa,
-        'bebidas_y_licores': bebidas_y_licores,
-        'queso_y_fiambres': queso_y_fiambres,
-        'panaderia_y_pasteleria': panaderia_y_pasteleria,
-        'congelados': congelados,
-        'mascotas': mascotas,
-        'bebes_y_ninos': bebes_y_ninos,
-        'ferreteria': ferreteria,
+def productos_view(request, categoria=None):
+    print(f"Categoría recibida: {categoria}")
+
+    categorias = {
+        'Verduras y Frutas': VerdurasYFrutas.objects.all(),
+        'Refrigerados': Refrigerados.objects.all(),
+        'Limpieza': Limpieza.objects.all(),
+        'Carnes': Carnes.objects.all(),
+        'Despensa': Despensa.objects.all(),
+        'Bebidas y Licores': BebidasYLicores.objects.all(),
+        'Queso y Fiambres': QuesoYFiambres.objects.all(),
+        'Panadería y Pastelería': PanaderiaYPasteleria.objects.all(),
+        'Congelados': Congelados.objects.all(),
+        'Mascotas': Mascotas.objects.all(),
+        'Bebés y Niños': BebesYNiños.objects.all(),
+        'Ferretería': Ferreteria.objects.all(),
     }
-    
+
+    if categoria and categoria in categorias:
+        productos = categorias[categoria]
+        print(f"Productos encontrados para {categoria}: {productos}")
+    else:
+        productos = Producto.objects.all()
+        print("Productos generales: ", productos)
+
+    context = {
+        'categorias': categorias.keys(),
+        'productos': productos,
+        'categoria_actual': categoria,
+    }
+
     return render(request, 'myapp/PRODUCTOS.html', context)
 
 def index(request):
