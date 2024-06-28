@@ -4,7 +4,39 @@ from .forms import ProductoForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import SignupForm
 from django.contrib.auth.forms import UserCreationForm
+from .models import VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados, Mascotas, BebesYNiños, Ferreteria
 # Create your views here
+
+def productos_view(request):
+    verduras_y_frutas = VerdurasYFrutas.objects.all()
+    refrigerados = Refrigerados.objects.all()
+    limpieza = Limpieza.objects.all()
+    carnes = Carnes.objects.all()
+    despensa = Despensa.objects.all()
+    bebidas_y_licores = BebidasYLicores.objects.all()
+    queso_y_fiambres = QuesoYFiambres.objects.all()
+    panaderia_y_pasteleria = PanaderiaYPasteleria.objects.all()
+    congelados = Congelados.objects.all()
+    mascotas = Mascotas.objects.all()
+    bebes_y_ninos = BebesYNiños.objects.all()
+    ferreteria = Ferreteria.objects.all()
+    
+    context = {
+        'verduras_y_frutas': verduras_y_frutas,
+        'refrigerados': refrigerados,
+        'limpieza': limpieza,
+        'carnes': carnes,
+        'despensa': despensa,
+        'bebidas_y_licores': bebidas_y_licores,
+        'queso_y_fiambres': queso_y_fiambres,
+        'panaderia_y_pasteleria': panaderia_y_pasteleria,
+        'congelados': congelados,
+        'mascotas': mascotas,
+        'bebes_y_ninos': bebes_y_ninos,
+        'ferreteria': ferreteria,
+    }
+    
+    return render(request, 'myapp/PRODUCTOS.html', context)
 
 def index(request):
     contexto = {}
