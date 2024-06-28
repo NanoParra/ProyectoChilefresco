@@ -4,9 +4,15 @@ from .forms import ProductoForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .forms import SignupForm
 from django.contrib.auth.forms import UserCreationForm
+from .models import Carrito
+from .forms import CarritoForm
+from .models import Order
+from .forms import CheckoutForm
+from .forms import UserEditForm
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 from .models import VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados, Mascotas, BebesYNiños, Ferreteria
 # Create your views here
-
 def productos_view(request, categoria=None):
     print(f"Categoría recibida: {categoria}")
 
@@ -40,6 +46,7 @@ def productos_view(request, categoria=None):
 
     return render(request, 'myapp/PRODUCTOS.html', context)
 
+
 def index(request):
     contexto = {}
     return render(request, 'myapp/index.html', contexto)
@@ -56,9 +63,9 @@ def bebes(request):
     contexto = {}
     return render(request, 'myapp/BEBECOMESTIBLES.html', contexto)
 
-def cart(request):
+def carro_compra(request):
     contexto = {}
-    return render(request, 'myapp/cart.html', contexto)
+    return render(request, 'myapp/carro_compra.html', contexto)
 
 def cuenta(request):
     contexto = {}
@@ -129,12 +136,68 @@ def checkout(request):
         return redirect('index')
     return render(request, 'checkout.html')
 
-def signup(request):
+def signup_view(request):
     if request.method == 'POST':
-        form = SignupForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            # redirigir a otra página o mostrar un mensaje de éxito
+            # Puedes redirigir a donde quieras después del signup
+            return redirect('index')  # Cambia 'index' por la URL a la que quieres redirigir
     else:
-        form = SignupForm()
+        form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+def agregar_al_carrito(request, producto_id):
+    if request.method == 'POST':
+        form = CarritoForm(request.POST)
+        if form.is_valid():
+            carrito = form.save(commit=False)
+            carrito.usuario = request.user
+            carrito.save()
+            return redirect('carrito')  # Cambia 'carrito' por la URL de tu carrito de compra
+    else:
+        form = CarritoForm(initial={'producto': producto_id})
+    return render(request, 'agregar_al_carrito.html', {'form': form})
+
+def eliminar_del_carrito(request, carrito_id):
+    carrito = Carrito.objects.get(id=carrito_id)
+    carrito.delete()
+    return redirect('carrito')  # Cambia 'carrito' por la URL de tu carrito de compra
+
+# Otras funciones para actualizar cantidades, etc.
+
+def checkout_view(request):
+    if request.method == 'POST':
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            # Guardar la orden en la base de datos
+            order = form.save(commit=False)
+            order.usuario = request.user  # Asigna el usuario actual
+            order.save()
+            # Aquí podrías agregar lógica adicional, como enviar un correo de confirmación, procesar el pago, etc.
+            return redirect('orden_confirmada')  # Cambia 'orden_confirmada' por la URL de confirmación de orden
+    else:
+        form = CheckoutForm()
+    return render(request, 'checkout.html', {'form': form})
+@login_required
+def editar_perfil(request):
+    if request.method == 'POST':
+        form = UserEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil')  # Cambia 'perfil' por la URL de perfil de usuario
+    else:
+        form = UserEditForm(instance=request.user)
+    return render(request, 'editar_perfil.html', {'form': form})
+
+@login_required
+def cambiar_contraseña(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Actualiza la sesión para mantener al usuario logueado
+            return redirect('perfil')  # Cambia 'perfil' por la URL de perfil de usuario
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'cambiar_contraseña.html', {'form': form})

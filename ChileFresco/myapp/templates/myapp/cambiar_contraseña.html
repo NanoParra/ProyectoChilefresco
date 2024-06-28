@@ -1,20 +1,20 @@
-<!-- login.html -->
+<!-- cambiar_contraseña.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Cambiar Contraseña</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2>Cambiar Contraseña</h2>
     
     <form method="post">
         {% csrf_token %}
         
         {{ form.as_p }}
         
-        <button type="submit">Login</button>
+        <button type="submit">Cambiar Contraseña</button>
     </form>
 </body>
 </html>

@@ -4,6 +4,7 @@ from django import forms
 from .models import Producto
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from .models import Order
 
 class ProductoForm(forms.ModelForm):
     class Meta:
@@ -15,6 +16,7 @@ class ProductoForm(forms.ModelForm):
             'precio': forms.NumberInput(attrs={'class': 'form-control'}),
             'stock': forms.NumberInput(attrs={'class': 'form-control'}),
         }
+
 class SignupForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password_confirm = forms.CharField(widget=forms.PasswordInput)
@@ -32,3 +34,21 @@ class SignupForm(forms.ModelForm):
             self.add_error('password_confirm', "Passwords do not match")
 
         return cleaned_data
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['direccion_envio', 'metodo_pago', 'total']  # Ajusta los campos según tu modelo
+
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']  # Campos a editar
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].disabled = True  # Deshabilitar edición de username si es necesario
+
+class CarritoForm(forms.Form):
+    producto = forms.ModelChoiceField(queryset=Producto.objects.all())
+    cantidad = forms.IntegerField(min_value=1)

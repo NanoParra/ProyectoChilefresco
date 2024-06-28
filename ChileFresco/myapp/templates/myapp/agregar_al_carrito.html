@@ -1,20 +1,20 @@
-<!-- login.html -->
+<!-- agregar_al_carrito.html -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Agregar al Carrito</title>
 </head>
 <body>
-    <h2>Login</h2>
+    <h2>Agregar al Carrito</h2>
     
     <form method="post">
         {% csrf_token %}
         
         {{ form.as_p }}
         
-        <button type="submit">Login</button>
+        <button type="submit">Agregar al Carrito</button>
     </form>
 </body>
 </html>
