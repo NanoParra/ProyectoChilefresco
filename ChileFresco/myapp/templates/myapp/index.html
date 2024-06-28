@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Descripción de tu página aquí" name="description"/>
+<meta content="palabras clave, separadas, por, comas" name="keywords"/>
+
+<link href="{% static 'Img/Logo chico.png' %}" rel="icon" type="image/x-icon"/>
+<!-- Link CSS Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"/>
+<!-- Link JS Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
+<title>ChileFresco</title>
+<link href="{% static 'myapp/Css/style.css' %}" rel="stylesheet"/>
+<script src="{% static 'myapp/Js/Funciones.js' %}"></script>
+</head>
+
+<body class="body">
+<header>
+<div class="left-section">
+<div class="logo">
+<a href="{% url 'index' %}"><img src="{% static 'myapp\Img\Logo.png' %}" alt="Logo"></a>
+</div>
+<nav class="navbar">
+<ul>
+<li><a class="a_productos" href="{% url 'index' %}">Inicio</a></li>
+<li><a class="a_productos" href="{% url 'productos' %}">Productos</a></li>
+<li><a class="a_productos" href="{% url 'contactanos' %}">Contáctanos</a></li>
+{% if user.is_authenticated and user.is_staff %}
+    <li><a class="a_productos" href="{% url 'admin_view' %}">Administración</a></li>
+{% endif %}
+</ul> 
+</nav>
+</div>
+<div class="right-section">
+<button class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">
+<svg class="bi bi-person-circle" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
+<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
+</svg>
+                Login
+            </button>
+<a href="{% url 'carro_compra' %}">
+<button class="btn btn-primary cart-button">
+<svg class="bi bi-basket-fill" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0z"></path>
+</svg>
+                    Carrito
+                </button>
+</a>
+</div>
+</header>
+<!-- Modal login -->
+<div aria-hidden="true" aria-labelledby="loginModalLabel" class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="loginModalLabel">Ingrese sus datos de usuario</h5>
+<button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+</div>
+<div class="modal-body">
+<!-- Login form -->
+<form id="loginForm">
+<div class="mb-3">
+<label class="form-label" for="username">Correo</label>
+<input class="form-control" id="username" required="" type="text"/>
+</div>
+<div class="mb-3">
+<label class="form-label" for="password">Contraseña</label>
+<input class="form-control" id="password" required="" type="password"/>
+</div>
+<button class="btn btn-primary" id="loginButton" type="submit">Iniciar sesión</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="principal">
+<center><h1>Bienvenido a ChileFresco</h1></center>
+</div>
+<div class="carousel-container">
+<div class="carousel slide" data-bs-ride="carousel" id="carouselExampleAutoplaying">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<div class="row">
+<div class="col">
+<!-- Primer producto -->
+<div class="product">
+<img alt="Producto 1" height="100px" src="{% static 'myapp/Img/doritos.png' %}"/>
+<h3>Doritos</h3>
+<p>Ofertas</p>
+<button class="btn btn-primary" onclick="agregarAlCarrito(2)"><a class="a_productos" href="../Html/BEBECOMESTIBLES.html">Comprar</a></button>
+</div>
+</div>
+<div class="col">
+<!-- Segundo producto -->
+<div class="product">
+<img alt="Producto 2" height="100px" src="{% static 'myapp/Img/tomateok.png' %}"/>
+<h3>Tomates</h3>
+<p>Ofertas</p>
+<button class="btn btn-primary" onclick="agregarAlCarrito(2)"><a class="a_productos" href="../Html/VERDULERIA.html">Comprar</a></button>
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="row">
+<div class="col">
+<!-- Cuarto producto -->
+<div class="product">
+<img alt="Producto 3" height="100px" src="{% static 'myapp/Img/pastel.png' %}"/>
+<h3>Torta de Manjar</h3>
+<p>Ofertas</p>
+<button class="btn btn-primary" onclick="agregarAlCarrito(2)"><a class="a_productos" href="../Html/PANADERIA.html">Comprar</a></button>
+</div>
+</div>
+<div class="col">
+<!-- Quinto producto -->
+<div class="product">
+<img alt="Producto 4" height="100px" src="{% static 'myapp/Img/platano.png' %}"/>
+<h3>Plátanos</h3>
+<p>Ofertas</p>
+<button class="btn btn-primary" onclick="agregarAlCarrito(2)"><a class="a_productos" href="../Html/VERDULERIA.html">Comprar</a></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Agrega más elementos de carrusel aquí -->
+</div>
+<button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleAutoplaying" type="button">
+<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleAutoplaying" type="button">
+<span aria-hidden="true" class="carousel-control-next-icon"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+<section class="general container">
+<div class="titulo-pro">
+<center><h2>Productos</h2></center>
+</div>
+<div class="section cards">
+<div class="card">
+<a class="a_productos" href="../Html/BEBECOMESTIBLES.html">
+<img alt="Confites" src="{% static 'myapp/Img/confites.jpg' %}"/>
+<p>Tenemos gran variedad de confites para que degustes</p>
+</a>
+</div>
+<div class="card">
+<a class="a_productos" href="../Html/PANADERIA.html">
+<img alt="Dulcería" src="{% static 'myapp/Img/dulceria2.jpg' %}"/>
+<p>Para tus antojos dulces contamos con variedades de pasteles caseros</p>
+</a>
+</div>
+<div class="card">
+<a class="a_productos" href="../Html/VERDULERIA.html">
+<img alt="Frutería" src="{% static 'myapp/Img/fruteria.jpg' %}"/>
+<p>Frutas y verduras frescas para que prepares las mejores recetas</p>
+</a>
+</div>
+</div>
+<center><a class="btn-1" href="#">Información</a></center>
+</section>
+<section class="footer">
+<div class="footer-container">
+<h2>Servicio al cliente</h2>
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "AIzaSyByV6w-RyMKe6WlGwHGO00BdKR2yz3pHpw",
+      v: "weekly",
+      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+      // Add other bootstrap parameters as needed, using camel case.
+    });
+  </script>
+<ul>
+<li><a href="#">Términos y condiciones</a></li>
+<li><a href="#">Cómo comprar</a></li>
+</ul>
+<p>Volcán Hornopirén G9, Puerto Varas, Chile</p>
+<svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.978 4a2.553 2.553 0 0 0-1.926.877C4.233 6.7 3.699 8.751 4.153 10.814c.44 1.995 1.778 3.893 3.456 5.572 1.68 1.679 3.577 3.018 5.57 3.459 2.062.456 4.115-.073 5.94-1.885a2.556 2.556 0 0 0 .001-3.861l-1.21-1.21a2.689 2.689 0 0 0-3.802 0l-.617.618a.806.806 0 0 1-1.14 0l-1.854-1.855a.807.807 0 0 1 0-1.14l.618-.62a2.692 2.692 0 0 0 0-3.803l-1.21-1.211A2.555 2.555 0 0 0 7.978 4Z"></path>
+</svg>
+<p>Pedidos al +56945886714</p>
+<svg aria-hidden="true" class="w-6 h-6 text-gray-800 dark:text-white" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none"></path>
+<path d="M22.4 4.4l-1.6 1.6c-.4.4-1.2.4-1.6 0L16 3.2c-.4-.4-1.2-.4-1.6 0l-1.6 1.6 4.4 4.4 3.2-3.2c.4-.4.4-1.2 0-1.6zm-3.6 5.6L6.6 22.8c-.4.4-1 .4-1.4 0L.8 18.4c-.4-.4-.4-1 0-1.4L15.4 2.6c.4-.4 1-.4 1.4 0L18.8 4c.4.4.4 1 0 1.4L14.4 10l1.4 1.4z"></path>
+</svg>
+<p>Email: contacto@chilefresco.cl</p>
+</div>
+</section></div>
+
+</body>
+</html>
