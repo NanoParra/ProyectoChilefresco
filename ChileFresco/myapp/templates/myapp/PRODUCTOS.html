@@ -75,20 +75,21 @@
 </div>
 <!-- Control buttons -->
 <div id="myBtnContainer">
-  <a href="{% url 'productos' %}" class="btn active">Mostrar todos</a>
-  <a href="{% url 'productos_verduras' %}" class="btn">Verduras y Frutas</a>
-  <a href="{% url 'productos_refrigerados' %}" class="btn">Refrigerados</a>
-  <a href="{% url 'productos_limpieza' %}" class="btn">Limpieza</a>
-  <a href="{% url 'productos_carnes' %}" class="btn">Carnes</a>
-  <a href="{% url 'productos_despensa' %}" class="btn">Despensa</a>
-  <a href="{% url 'productos_bebidas' %}" class="btn">Bebidas y Licores</a>
-  <a href="{% url 'productos_quesos' %}" class="btn">Quesos y Fiambres</a>
-  <a href="{% url 'productos_panaderia' %}" class="btn">Panadería y Pastelería</a>
-  <a href="{% url 'productos_congelados' %}" class="btn">Congelados</a>
-  <a href="{% url 'productos_mascotas' %}" class="btn">Mascotas</a>
-  <a href="{% url 'productos_bebes' %}" class="btn">Bebés y Niños</a>
-  <a href="{% url 'productos_ferreteria' %}" class="btn">Ferretería</a>
+  <button class="btn active" onclick="filterSelection('all')">Mostrar todos</button>
+  <button class="btn" onclick="filterSelection('verduras_y_frutas')">Verduras y Frutas</button>
+  <button class="btn" onclick="filterSelection('refrigerados')">Refrigerados</button>
+  <button class="btn" onclick="filterSelection('limpieza')">Limpieza</button>
+  <button class="btn" onclick="filterSelection('carnes')">Carnes</button>
+  <button class="btn" onclick="filterSelection('despensa')">Despensa</button>
+  <button class="btn" onclick="filterSelection('bebidas_y_licores')">Bebidas y Licores</button>
+  <button class="btn" onclick="filterSelection('queso_y_fiambres')">Quesos y Fiambres</button>
+  <button class="btn" onclick="filterSelection('panaderia_y_pasteleria')">Panadería y Pastelería</button>
+  <button class="btn" onclick="filterSelection('congelados')">Congelados</button>
+  <button class="btn" onclick="filterSelection('mascotas')">Mascotas</button>
+  <button class="btn" onclick="filterSelection('bebes_y_ninos')">Bebés y Niños</button>
+  <button class="btn" onclick="filterSelection('ferreteria')">Ferretería</button>
 </div>
+
 
 <!-- Productos -->
     <div class="row container_pro">

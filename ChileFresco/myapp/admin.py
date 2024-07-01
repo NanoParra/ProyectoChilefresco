@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from .models import Producto,VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, \
+from .models import VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, \
     BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados, \
     Mascotas, BebesYNiños, Ferreteria
 
@@ -82,5 +82,3 @@ class BebesYNiñosAdmin(ProductoBaseAdmin):
 @admin.register(Ferreteria)
 class FerreteriaAdmin(ProductoBaseAdmin):
     pass
-
-admin.site.register(Producto)

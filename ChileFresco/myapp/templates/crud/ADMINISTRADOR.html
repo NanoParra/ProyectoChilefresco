@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'myapp/Css/style.css' %}">
+</head>
+
+<body class="container_administrador">
+    <h1 class="mt-5">Gestión de Productos</h1>
+
+    <!-- Filtros por clase de producto -->
+    <div class="mt-4">
+        <h2>Filtrar por Clase de Producto</h2>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-secondary filter-button" data-target="all">Todos</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="verduras_y_frutas">Verduras y
+                Frutas</button>
+            <button type="button" class="btn btn-secondary filter-button"
+                data-target="refrigerados">Refrigerados</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="limpieza">Limpieza</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="carnes">Carnes</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="despensa">Despensa</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="bebidas_y_licores">Bebidas y
+                Licores</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="queso_y_fiambres">Queso y
+                Fiambres</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="panaderia_y_pasteleria">Panadería
+                y Pastelería</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="congelados">Congelados</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="mascotas">Mascotas</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="bebes_y_ninos">Bebés y
+                Niños</button>
+            <button type="button" class="btn btn-secondary filter-button" data-target="ferreteria">Ferretería</button>
+        </div>
+    </div>
+
+    <!-- Listado de Productos -->
+    <div class="mt-4">
+        <h2>Listado de Productos</h2>
+        <table class="table table-striped table-hover tablazo">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">CÓDIGO BARRA</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">PRECIO</th>
+                    <th scope="col">PESO/VOLUMEN</th>
+                    <th scope="col">TIPO UNIDAD</th>
+                    <th scope="col">STOCK</th>
+                    <th scope="col">DETALLE</th>
+                    <th scope="col">ELABORACIÓN</th>
+                    <th scope="col">VENCIMIENTO</th>
+                    <th scope="col">IMAGEN</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for category, items in productos.items %}
+                {% for item in items %}
+                <tr class="producto-row {{ category }}">
+                    <td>{{ item.codigo_barra }}</td>
+                    <td>{{ item.nombre_producto }}</td>
+                    <td>{{ item.precio_producto }}</td>
+                    <td>{{ item.peso_volumen_producto }}</td>
+                    <td>{{ item.tipo_unidad }}</td>
+                    <td>{{ item.unidades_stock }}</td>
+                    <td>{{ item.unidades_detalle }}</td>
+                    <td>{{ item.fecha_elaboracion }}</td>
+                    <td>{{ item.fecha_vencimiento }}</td>
+                    <td>
+                        {% if item.imagen_producto %}
+                        <img src="{{ item.imagen_producto.url }}" alt="{{ item.nombre_producto }}" width="50">
+                        {% else %}
+                        No Image
+                        {% endif %}
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#modalModificar{{ item.id }}">Modificar Producto</button>
+
+                        <div class="modal fade" id="modalModificar{{ item.id }}" tabindex="-1"
+                            aria-labelledby="modalModificarLabel{{ item.id }}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalModificarLabel{{ item.id }}">Modificar Producto
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/administrador/{{ item.id }}/modificar/" method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <!-- Aquí deberías tener los campos que deseas modificar, por ejemplo: -->
+                                            <div class="mb-3">
+                                                <label for="nombre_producto" class="form-label">Nombre del
+                                                    Producto</label>
+                                                <input type="text" name="nombre_producto" id="nombre_producto"
+                                                    class="form-control" value="{{ item.nombre_producto }}">
+                                            </div>
+                                            <!-- Otros campos que deseas modificar -->
+                                            <!-- Campo para modificar el precio -->
+                                            <div class="mb-3">
+                                                <label for="precio_producto" class="form-label">Precio del
+                                                    Producto</label>
+                                                <input type="number" name="precio_producto" id="precio_producto"
+                                                    class="form-control" value="{{ item.precio_producto }}">
+                                            </div>
+
+                                            <!-- Campo para modificar el stock -->
+                                            <div class="mb-3">
+                                                <label for="unidades_stock" class="form-label">Stock del
+                                                    Producto</label>
+                                                <input type="number" name="unidades_stock" id="unidades_stock"
+                                                    class="form-control" value="{{ item.unidades_stock }}">
+                                            </div>
+                                            <!-- Campo para modificar el código de barras -->
+                                            <div class="mb-3">
+                                                <label for="codigo_barra" class="form-label">Código de Barras</label>
+                                                <input type="text" name="codigo_barra" id="codigo_barra"
+                                                    class="form-control" value="{{ item.codigo_barra }}">
+                                            </div>
+
+                                            <!-- Campo para modificar la fecha de vencimiento -->
+                                            <div class="mb-3">
+                                                <label for="fecha_vencimiento" class="form-label">Fecha de
+                                                    Vencimiento</label>
+                                                <input type="date" name="fecha_vencimiento" id="fecha_vencimiento"
+                                                    class="form-control" value="{{ item.fecha_vencimiento }}">
+                                            </div>
+
+                                            <!-- Campo para modificar la imagen del producto -->
+                                            <div class="mb-3">
+                                                <label for="imagen_producto" class="form-label">Imagen del
+                                                    Producto</label>
+                                                {% if item.imagen_producto %}
+                                                <img src="{{ item.imagen_producto.url }}"
+                                                    alt="{{ item.nombre_producto }}" width="100">
+                                                <input type="file" name="imagen_producto" id="imagen_producto"
+                                                    class="form-control mt-2">
+                                                {% else %}
+                                                <input type="file" name="imagen_producto" id="imagen_producto"
+                                                    class="form-control">
+                                                {% endif %}
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <form action="/eliminar/{{ item.id }}/" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="submit" value="Eliminar" class="btn btn-danger">
+                        </form>
+
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Botón que abre el modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAgregar">Agregar
+            Producto</button>
+
+        <!-- Modal para agregar producto -->
+        <div class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="modalAgregarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAgregarLabel">Agregar Nuevo Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Formulario para agregar producto -->
+                        <form action="{% url 'administrador_agregar_producto' %}" method="post"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="categoria" class="form-label">Categoría del Producto</label>
+                                <select name="categoria" id="categoria" class="form-select">
+                                    <option value="verduras_y_frutas">Verduras y Frutas</option>
+                                    <option value="refrigerados">Refrigerados</option>
+                                    <option value="limpieza">Limpieza</option>
+                                    <option value="carnes">Carnes</option>
+                                    <option value="despensa">Despensa</option>
+                                    <option value="bebidas_y_licores">Bebidas y Licores</option>
+                                    <option value="queso_y_fiambres">Queso y Fiambres</option>
+                                    <option value="panaderia_y_pasteleria">Panadería y Pastelería</option>
+                                    <option value="congelados">Congelados</option>
+                                    <option value="mascotas">Mascotas</option>
+                                    <option value="bebes_y_ninos">Bebés y Niños</option>
+                                    <option value="ferreteria">Ferretería</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="codigo_barra" class="form-label">Código de Barras</label>
+                                <input type="text" name="codigo_barra" id="codigo_barra" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nombre_producto" class="form-label">Nombre del Producto</label>
+                                <input type="text" name="nombre_producto" id="nombre_producto" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="precio_producto" class="form-label">Precio</label>
+                                <input type="number" name="precio_producto" id="precio_producto" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="peso_volumen_producto" class="form-label">Peso/Volumen</label>
+                                <input type="text" name="peso_volumen_producto" id="peso_volumen_producto"
+                                    class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tipo de Unidad</label>
+                                <div class="d-flex">
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="tipo_unidad" id="tipo_peso"
+                                            value="peso">
+                                        <label class="form-check-label" for="tipo_peso">Peso</label>
+                                    </div>
+                                    <div class="form-check me-3">
+                                        <input class="form-check-input" type="radio" name="tipo_unidad"
+                                            id="tipo_volumen" value="volumen">
+                                        <label class="form-check-label" for="tipo_volumen">Volumen</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo_unidad"
+                                            id="tipo_unidades" value="unidades">
+                                        <label class="form-check-label" for="tipo_unidades">Unidades</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="unidades_stock" class="form-label">Stock</label>
+                                <input type="number" name="unidades_stock" id="unidades_stock" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="unidades_detalle" class="form-label">Detalle</label>
+                                <input type="text" name="unidades_detalle" id="unidades_detalle" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fecha_elaboracion" class="form-label">Fecha de Elaboración</label>
+                                <input type="date" name="fecha_elaboracion" id="fecha_elaboracion" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fecha_vencimiento" class="form-label">Fecha de Vencimiento</label>
+                                <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="imagen_producto" class="form-label">Imagen del Producto</label>
+                                <input type="file" name="imagen_producto" id="imagen_producto" class="form-control">
+                            </div>
+                            <!-- Botón de Agregar con estilos de Bootstrap -->
+                            <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        crossorigin="anonymous"></script>
+        
+
+    <!-- Script personalizado para filtrar productos -->
+    <script>
+        $(document).ready(function () {
+            $('.filter-button').on('click', function () {
+                var target = $(this).data('target');
+
+                if (target === 'all') {
+                    $('.producto-row').show();
+                } else {
+                    $('.producto-row').hide();
+                    $('.' + target).show();
+                }
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
