@@ -75,139 +75,244 @@
 </div>
 <!-- Control buttons -->
 <div id="myBtnContainer">
-<button class="btn active" onclick="filterSelection('all')">Mostrar todos</button>
-<button class="btn" onclick="filterSelection('veg')">Verduras</button>
-<button class="btn" onclick="filterSelection('fruit')">Frutas</button>
-<button class="btn" onclick="filterSelection('snacks')">Confites</button>
-<button class="btn" onclick="filterSelection('bakery')">Pasteleria</button>
-<button class="btn" onclick="filterSelection('bread')">Panaderia</button>
-<button class="btn" onclick="filterSelection('drinks')">Bebestibles</button>
+  <button class="btn active" onclick="filterSelection('all')">Mostrar todos</button>
+  <button class="btn" onclick="filterSelection('verduras_y_frutas')">Verduras y Frutas</button>
+  <button class="btn" onclick="filterSelection('refrigerados')">Refrigerados</button>
+  <button class="btn" onclick="filterSelection('limpieza')">Limpieza</button>
+  <button class="btn" onclick="filterSelection('carnes')">Carnes</button>
+  <button class="btn" onclick="filterSelection('despensa')">Despensa</button>
+  <button class="btn" onclick="filterSelection('bebidas_y_licores')">Bebidas y Licores</button>
+  <button class="btn" onclick="filterSelection('queso_y_fiambres')">Quesos y Fiambres</button>
+  <button class="btn" onclick="filterSelection('panaderia_y_pasteleria')">Panadería y Pastelería</button>
+  <button class="btn" onclick="filterSelection('congelados')">Congelados</button>
+  <button class="btn" onclick="filterSelection('mascotas')">Mascotas</button>
+  <button class="btn" onclick="filterSelection('bebes_y_ninos')">Bebés y Niños</button>
+  <button class="btn" onclick="filterSelection('ferreteria')">Ferretería</button>
 </div>
-<!-- The filterable elements -->
-<section class="section container my-5">
-<div class="row container_pro">
-<div class="col-md-4 mb-4 filterDiv veg">
-<div class="product card h-100">
-<img alt="Tomate" class="card-img-top" src="{% static 'myapp/Img/tomateok.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Tomate Kg</h5>
-<p class="card-text">$1990</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv fruit">
-<div class="product card h-100">
-<img alt="Platano" class="card-img-top" src="{% static 'myapp/Img/platano.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Platano Kg</h5>
-<p class="card-text">$800</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv snacks">
-<div class="product card h-100">
-<img alt="Doritos" class="card-img-top" src="{% static 'myapp/Img/doritos.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Doritos 250gr</h5>
-<p class="card-text">$1500</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv snacks">
-<div class="product card h-100">
-<img alt="Oblea Chocolate 230gr" class="card-img-top" src="{% static 'myapp/Img/oblea.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Oblea Chocolate 230gr</h5>
-<p class="card-text">$900</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv bakery">
-<div class="product card h-100">
-<img alt="Berlín" class="card-img-top" src="{% static 'myapp/Img/berlin.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Berlín</h5>
-<p class="card-text">$1500</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv bread">
-<div class="product card h-100">
-<img alt="Hallulla kg" class="card-img-top" src="{% static 'myapp/Img/hallulla.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Hallulla kg</h5>
-<p class="card-text">$1850</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv drinks">
-<div class="product card h-100">
-<img alt="Coca-Cola 350ml" class="card-img-top" src="{% static 'myapp/Img/bebida.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Coca-Cola 350ml</h5>
-<p class="card-text">$900</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
-<div class="col-md-4 mb-4 filterDiv veg">
-<div class="product card h-100">
-<img alt="Palta kg" class="card-img-top" src="{% static 'myapp/Img/palta.png' %}" style="max-height: 500px; width: 100%; object-fit: cover;"/>
-<div class="card-body">
-<h5 class="card-title">Palta kg</h5>
-<p class="card-text">$ muy cara pa acordarme</p>
-<div class="d-flex align-items-center mb-3">
-<button class="btn btn-primary me-2 quantity-btn">-</button>
-<input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
-<button class="btn btn-primary ms-2 quantity-btn">+</button>
-</div>
-<button class="btn btn-primary w-100 add-to-cart-btn" data-bs-target="#exampleModal" data-bs-toggle="modal">Añadir al carro</button>
-</div>
-</div>
-</div>
+
+
+<!-- Productos -->
+    <div class="row container_pro">
+      {% for producto in verduras_y_frutas %}
+          <div class="col-md-4 mb-4 filterDiv verduras_y_frutas">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+
+      {% for producto in refrigerados %}
+          <div class="col-md-4 mb-4 filterDiv refrigerados">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in limpieza %}
+          <div class="col-md-4 mb-4 filterDiv limpieza">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in carnes %}
+          <div class="col-md-4 mb-4 filterDiv carnes">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in despensa %}
+          <div class="col-md-4 mb-4 filterDiv despensa">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in bebidas_y_licores %}
+          <div class="col-md-4 mb-4 filterDiv bebidas_y_licores">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in queso_y_fiambres %}
+          <div class="col-md-4 mb-4 filterDiv queso_y_fiambres">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in panaderia_y_pasteleria %}
+          <div class="col-md-4 mb-4 filterDiv panaderia_y_pasteleria">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in congelados %}
+          <div class="col-md-4 mb-4 filterDiv congelados">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in mascotas %}
+          <div class="col-md-4 mb-4 filterDiv mascotas">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in bebes_y_ninos %}
+          <div class="col-md-4 mb-4 filterDiv bebes_y_ninos">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+      
+      {% for producto in ferreteria %}
+          <div class="col-md-4 mb-4 filterDiv ferreteria">
+              <div class="product card h-100">
+                  <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.nombre_producto }}" class="card-img-top" style="max-height: 500px; width: 100%; object-fit: cover;"/>
+                  <div class="card-body">
+                      <h5 class="card-title">{{ producto.nombre_producto }}</h5>
+                      <p class="card-text">${{ producto.precio_producto }}</p>
+                      <div class="d-flex align-items-center mb-3">
+                          <button class="btn btn-primary me-2 quantity-btn">-</button>
+                          <input class="form-control w-25 quantity-input text-center" type="text" value="1"/>
+                          <button class="btn btn-primary ms-2 quantity-btn">+</button>
+                      </div>
+                      <button class="btn btn-success w-100 add-to-cart-btn">Agregar al carrito</button>
+                  </div>
+              </div>
+          </div>
+      {% endfor %}
+  </div>
 </div>
 </section>
+
+
 <section class="footer">
 <div class="footer-container">
 <h2>Servicio al cliente</h2>
@@ -229,5 +334,18 @@
 </div>
 
 </section>
+
+<script>
+  function filterSelection(category) {
+      var elements = document.getElementsByClassName('filterDiv');
+      if (category === 'all') category = '';
+      for (var i = 0; i < elements.length; i++) {
+          elements[i].style.display = elements[i].className.indexOf(category) > -1 ? 'block' : 'none';
+      }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+      filterSelection('all');
+  });
+</script>
 </body>
 </html>
