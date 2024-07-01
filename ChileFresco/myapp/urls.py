@@ -1,4 +1,3 @@
-
 from django.urls import path
 from . import views
 from .views import productos_view
@@ -18,13 +17,11 @@ urlpatterns = [
     path('verduleria/', views.verduleria, name='verduleria'),
     path('productos-todos/', productos_view, name='productos_todos'),
 
-    path('administrador/',views.administrador, name='administrador'),
-    path('administrador/', views.administrador_agregar_producto, name='administrador_agregar_producto'),
-    
+    path('administrador/', views.administrador, name='administrador'),
+    path('administrador/agregar/', views.administrador_agregar_producto, name='administrador_agregar_producto'),
+    path('administrador/modificar/<int:pk>/', views.modificar_producto, name='modificar_producto'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-    
 
 

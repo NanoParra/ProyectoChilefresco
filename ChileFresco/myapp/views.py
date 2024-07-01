@@ -16,8 +16,10 @@ from .models import (
 from .forms import ProductoForm
 
 from .models import VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa, BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados, Mascotas, BebesYNiños, Ferreteria
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .forms import ProductoForm
+from .models import ProductoBase
+from django.http import JsonResponse
 
 
 
@@ -35,40 +37,58 @@ def administrador_agregar_producto(request):
                 producto = form.save(commit=False)
 
                 # Asignar la instancia del modelo de producto correspondiente según la categoría
-                model_map = {
-                    'verduras_y_frutas': VerdurasYFrutas,
-                    'refrigerados': Refrigerados,
-                    'limpieza': Limpieza,
-                    'carnes': Carnes,
-                    'despensa': Despensa,
-                    'bebidas_y_licores': BebidasYLicores,
-                    'queso_y_fiambres': QuesoYFiambres,
-                    'panaderia_y_pasteleria': PanaderiaYPasteleria,
-                    'congelados': Congelados,
-                    'mascotas': Mascotas,
-                    'bebes_y_ninos': BebesYNiños,
-                    'ferreteria': Ferreteria,
-                }
-
-                if categoria in model_map:
-                    producto_instance = model_map[categoria]()
-                    for field in producto._meta.fields:
-                        setattr(producto_instance, field.name, getattr(producto, field.name))
-                    producto_instance.save()
-
-                    return redirect('administrador')
+                if categoria == 'verduras_y_frutas':
+                    producto_instance = VerdurasYFrutas()
+                elif categoria == 'refrigerados':
+                    producto_instance = Refrigerados()
+                elif categoria == 'limpieza':
+                    producto_instance = Limpieza()
+                elif categoria == 'carnes':
+                    producto_instance = Carnes()
+                elif categoria == 'despensa':
+                    producto_instance = Despensa()
+                elif categoria == 'bebidas_y_licores':
+                    producto_instance = BebidasYLicores()
+                elif categoria == 'queso_y_fiambres':
+                    producto_instance = QuesoYFiambres()
+                elif categoria == 'panaderia_y_pasteleria':
+                    producto_instance = PanaderiaYPasteleria()
+                elif categoria == 'congelados':
+                    producto_instance = Congelados()
+                elif categoria == 'mascotas':
+                    producto_instance = Mascotas()
+                elif categoria == 'bebes_y_ninos':
+                    producto_instance = BebesYNiños()
+                elif categoria == 'ferreteria':
+                    producto_instance = Ferreteria()
                 else:
                     return render(request, 'crud/ADMINISTRADOR.html', {'form': form, 'error_message': 'Categoría de producto no válida'})
 
+                # Llenar los campos del modelo específico con los datos del formulario y guardar
+                producto_instance.nombre_producto = producto.nombre_producto
+                producto_instance.precio_producto = producto.precio_producto
+                producto_instance.peso_volumen_producto = producto.peso_volumen_producto
+                producto_instance.tipo_unidad = producto.tipo_unidad
+                producto_instance.unidades_stock = producto.unidades_stock
+                producto_instance.unidades_detalle = producto.unidades_detalle
+                producto_instance.fecha_elaboracion = producto.fecha_elaboracion
+                producto_instance.fecha_vencimiento = producto.fecha_vencimiento
+                producto_instance.imagen_producto = producto.imagen_producto
+                producto_instance.save()
+
+                # Redirigir a la página de administrador con éxito
+                return redirect('administrador')
+
             except Exception as e:
+                # Manejo genérico de errores durante el proceso de guardar el producto
                 error_message = f"Error al guardar el producto: {str(e)}"
                 return render(request, 'crud/ADMINISTRADOR.html', {'form': form, 'error_message': error_message})
 
     else:
         form = ProductoForm()
 
-    return render(request, 'crud/ADMINISTRADOR.html', {'form': form})
-
+    contexto = {'form': form}
+    return render(request, 'crud/ADMINSTRADOR.html', contexto)
 
 def administrador(request):
     productos = {
@@ -110,7 +130,18 @@ def productos_view(request):
     
     return render(request, 'myapp/PRODUCTOS.html', context)
 
+def modificar_producto(request, pk):
+    producto = get_object_or_404(ProductoForm, pk=pk)
 
+    if request.method == 'POST':
+        form = ProductoForm(request.POST, request.FILES, instance=producto)
+        if form.is_valid():
+            form.save()
+            return redirect('administrador')  # Redirige a la página de administrador o donde corresponda
+    else:
+        form = ProductoForm(instance=producto)
+
+    return render(request, 'crud/ADMINISTRADOR.html', {'productos': productos})
 
 
 
