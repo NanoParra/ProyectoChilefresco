@@ -94,3 +94,8 @@ class Ferreteria(ProductoBase):
     class Meta(ProductoBase.Meta):
         verbose_name = "Producto de Ferretería"
         verbose_name_plural = "Productos de Ferretería"
+
+    
+    
+    
+    
