@@ -1,5 +1,5 @@
 
-from django.urls import path
+from django.urls import include, path
 from . import views
 from .views import productos_view
 from django.conf import settings
@@ -23,7 +23,10 @@ urlpatterns = [
     path('modificar-producto/<str:product_type>/<int:codigo_barra>/', views.administrador_modificar_producto, name='administrador_modificar_producto'),
     path('eliminar-producto/<str:product_type>/<int:codigo_barra>/', views.administrador_eliminar_producto, name='administrador_eliminar_producto'),
     
-    
+    path('adminseccion/', views.adminseccion, name='adminseccion'),
+    path('login/', include("django.contrib.auth.urls")),
+    path('register/', views.register, name='register'),
+    path('accounts/', include('django.contrib.auth.urls')),
     
 ]
 if settings.DEBUG:

@@ -1,5 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import messages
+from .models import *
+from django.contrib.auth.decorators import login_required #type: ignore
+from django.contrib.auth.forms import UserCreationForm
 from .models import (
     VerdurasYFrutas, Refrigerados, Limpieza, Carnes, Despensa,
     BebidasYLicores, QuesoYFiambres, PanaderiaYPasteleria, Congelados,
@@ -208,4 +211,27 @@ def verduleria(request):
     contexto = {}
     return render(request, 'myapp/VERDULERIA.html', contexto)
 
+
+# ---------------Login-------------
+def login (request):
+    contexto = {}
+    return render(request, 'registration/login.html', contexto)
+
+def register(request):
+    if request.method =='POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+    else:  
+        form = UserCreationForm()
+    contexto ={ 'form' : form}
+    return render(request, 'registration/register.html', contexto)
+
+
+@login_required
+def adminseccion(request):
+    request.session["usuario"]="adminparra";
+    usuario=request.session["usuario"]
+    contexto = {"usuario":usuario}
+    return render(request, 'crud/ADMINISTRADOR.html', contexto)
 
